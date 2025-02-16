@@ -2,14 +2,14 @@ import re
 import uuid
 from typing import Union, BinaryIO
 
-from odoo.addons.ho_moadian.models.moadian.utils.signer import Signer
-from odoo.addons.ho_moadian.models.moadian.utils.decorators import token
-from odoo.addons.ho_moadian.models.moadian.utils.request import TaxRequest
-from odoo.addons.ho_moadian.models.moadian.utils.dto import create_package
-from odoo.addons.ho_moadian.models.moadian.utils.encrypter import Encrypter
-from odoo.addons.ho_moadian.models.moadian.utils.validators import key_validator, timestamp_validator
-from odoo.addons.ho_moadian.models.moadian.utils.normalizer import JSONNormalizer
-from odoo.addons.ho_moadian.models.moadian.utils.unique_tax_id import UniqueTaxID
+from odoo.addons.oe_moadian.models.moadian.utils.signer import Signer
+from odoo.addons.oe_moadian.models.moadian.utils.decorators import token
+from odoo.addons.oe_moadian.models.moadian.utils.request import TaxRequest
+from odoo.addons.oe_moadian.models.moadian.utils.dto import create_package
+from odoo.addons.oe_moadian.models.moadian.utils.encrypter import Encrypter
+from odoo.addons.oe_moadian.models.moadian.utils.validators import key_validator, timestamp_validator
+from odoo.addons.oe_moadian.models.moadian.utils.normalizer import JSONNormalizer
+from odoo.addons.oe_moadian.models.moadian.utils.unique_tax_id import UniqueTaxID
 
 
 class TaxApi(TaxRequest):
