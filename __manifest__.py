@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
-    "author": "hooshadoo",
-    "website": "https://www.hooshadoo.com/",
+    "author": "odooers.ir",
+    "website": "https://www.odooers.ir/",
     "name": "Tax Moadian System",
     "category": "Accounting",
     "depends": ["account"],

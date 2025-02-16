@@ -2,7 +2,7 @@
 # Part of BrowseInfo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models, tools, _
-from odoo.addons.ho_moadian.models.moadian.api  import TaxApi
+from odoo.addons.oe_moadian.models.moadian.api  import TaxApi
 from odoo.exceptions import ValidationError
 
 import base64
@@ -99,11 +99,11 @@ class AccountMoveInherit(models.Model):
         
 
      
-        
+        print (self.line_ids)
         
         for line in self.line_ids:
         
-            if (line.product_id.id):
+            if (line.product_id.id and line.display_type=='product'):
 
                 prdis = line.quantity * line.price_unit 
                 dis=math.floor(line.quantity * (line.price_unit * line.discount/100))
@@ -222,7 +222,6 @@ class AccountMoveInherit(models.Model):
    
         print (packet)
 
-        #return
 
         a = org_api.send_invoice(packet)
         print (a)
