@@ -12,6 +12,7 @@
                  <group>  
                     <group>
                         <field name="mod_top"/>
+                         <field name="mod_tinb" />
                       
                     
                     </group>

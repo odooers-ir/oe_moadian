@@ -46,13 +46,21 @@ class AccountMoveInherit(models.Model):
                 record.mod_serial_number=record.id
     
     def inquery_moadian(self):
+
+
+        print ("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
+     
+        print (self.env.context.get('allowed_company_ids'))
+
+        print (self.env.user.company_id)
+        print (self.env.company)
        
-        filecontent = base64.b64decode( self.env.user.company_id.pkey_file)
+        filecontent = base64.b64decode( self.env.company.pkey_file)
         org_api = TaxApi(
                 private_key=filecontent,
-                fiscalId= self.env.user.company_id.fiscal_id,
-                api_url= self.env.user.company_id.org_api_url,
-                economic_code=self.env.user.company_id.vat)
+                fiscalId= self.env.company.fiscal_id,
+                api_url= self.env.company.org_api_url,
+                economic_code=self.env.company.vat)
 
         print( org_api.get_server_information())
         
@@ -77,12 +85,18 @@ class AccountMoveInherit(models.Model):
 
     def send_moadian(self):
 
-        filecontent = base64.b64decode( self.env.user.company_id.pkey_file)
+        print ("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
+     
+        print (self.env.context.get('allowed_company_ids'))
+
+        print (self.env.user.company_id)
+
+        filecontent = base64.b64decode( self.env.company.pkey_file)
         org_api = TaxApi(
                 private_key=filecontent,
-                fiscalId= self.env.user.company_id.fiscal_id,
-                api_url= self.env.user.company_id.org_api_url,
-                economic_code=self.env.user.company_id.vat)
+                fiscalId= self.env.company.fiscal_id,
+                api_url= self.env.company.org_api_url,
+                economic_code=self.env.company.vat)
         
         
        # print(self.invoice_date.timestamp())
@@ -168,6 +182,7 @@ class AccountMoveInherit(models.Model):
                 "ins": self.mod_ins,
                 "tins": self.env.user.company_id.vat,
                 "bid": self.partner_id.vat,
+                "tinb": self.partner_id.mod_tinb,
                 "tob":self.partner_id.mod_top,
                 "setm":"1",
                 
